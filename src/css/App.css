@@ -85,7 +85,7 @@ body {
 }
 
 .container .meals .meal--thumb {
-  max-height: 300px;
-  max-width: 300px;
+  max-height: 100%;
+  max-width: 100%;
 }
 /*# sourceMappingURL=App.css.map */

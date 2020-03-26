@@ -10,8 +10,12 @@ class Search extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.searchMeals(this.state.text);
-    this.setState({ text: "" });
+    if (this.state.text === "") {
+      this.props.setAlert("Please enter something boii", "light");
+    } else {
+      this.props.searchMeals(this.state.text);
+      this.setState({ text: "" });
+    }
   };
 
   render() {
@@ -35,10 +39,16 @@ class Search extends Component {
           >
             Search
           </button>
+
           <button className="button button--random" disabled="disabled">
             Random
           </button>
         </form>
+        {this.props.showClear && (
+          <button className="button" onClick={this.props.clearMeals}>
+            clear
+          </button>
+        )}
       </div>
     );
   }
